@@ -39,4 +39,14 @@ header {
   box-shadow: 5px 5px 5px rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
+  animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
