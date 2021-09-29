@@ -17,3 +17,7 @@ header {
   width: 100%;
   text-align: center;
 }
+
+.display {
+  height: 50vh;
+}
