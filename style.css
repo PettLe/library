@@ -22,6 +22,9 @@ header {
 .display {
   height: 50vh;
   display: flex;
+  width: 65vw;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5vh;
 }
@@ -30,6 +33,7 @@ header {
   background-color: rgba(66, 66, 66, 0.8);
   padding: 2vh;
   height: 35vh;
+  width: 10vw;
   border-radius: 15px;
   gap: 1.5vh;
   box-shadow: 5px 5px 5px rgb(0, 0, 0);
