@@ -11,9 +11,21 @@
     <title>Library</title>
 </head>
 <body>
-    <head><h1>Collection of Old Dusty Books</h1></head>
+    <header><h1>Collection of Old Dusty Books</h1></header>
     
-
+<div class="bookForm">
+    <form>
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author"><br>
+        <label for="pages">Pages:</label><br>
+        <input type="text" id="pages" name="pages"><br>
+        <input type="checkbox" id="read" name="read">
+        <label for="read"> Read already?</label><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
     <script src="app.js"></script>
 </body>
 </html>

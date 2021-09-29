@@ -3,7 +3,17 @@
 
 /* Create an ARRAY, which takes the books (and their data) as an OBJECT. And create a
 function to take user INPUT and do that. Use HTML FORM in a div.*/
-let myLibrary = []
+let myLibrary = [
+    {title: "Harry Potter",
+author: "J.K. Rowling",
+pages: 243,
+read: "read"},
+{title: "The hobbit",
+author: "J.R.R. Tolkien",
+pages: 176,
+read: "not read"},
+];
+
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -12,10 +22,31 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-function addBookToLibrary() {
+let form = document.querySelector('form');
+form.addEventListener('submit', addBookToLibrary);
+function addBookToLibrary(event) {
 
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.getElementById("read").value;
+  
+        /*if (read.checked) {
+            return read = "read";
+        } else {
+            return read = "Not read";
+        }*/
+        console.log(read);
+
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    form.reset();
+    console.log(myLibrary);
+    event.preventDefault();
 
 }
+
+console.log(myLibrary);
 
 /* Create a LOOP that goes through the array and shows every book on the page (or in a cards).
  Might be easier to add few books manually.*/
