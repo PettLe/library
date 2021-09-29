@@ -43,7 +43,7 @@ function addBookToLibrary(event) {
     form.reset();
     console.log(myLibrary);
     event.preventDefault();
-
+showDisplay();
 }
 
 console.log(myLibrary);
@@ -51,6 +51,31 @@ console.log(myLibrary);
 /* Create a LOOP that goes through the array and shows every book on the page (or in a cards).
  Might be easier to add few books manually.*/
 
+function showDisplay() {
+
+const display = document.querySelector(".display");
+display.innerHTML = "";
+
+for (i = 0; i < myLibrary.length; i++) {
+const card = document.createElement('div');
+card.classList.add("card");
+const cardTitle = document.createElement("h3");
+const cardAuthor = document.createElement("p");
+const cardPages = document.createElement("p");
+
+for (let item in myLibrary[i]) {
+cardTitle.textContent = (myLibrary[i].title);
+cardAuthor.textContent = (myLibrary[i].author);
+cardPages.textContent = (myLibrary[i].pages) + " pages";
+}
+card.appendChild(cardTitle);
+card.appendChild(cardAuthor);
+card.appendChild(cardPages);
+display.appendChild(card);
+}
+}
+
+showDisplay();
 
 
  /* NEW BOOK button, which brings up a FORM, which takes new book: author, title, pages and

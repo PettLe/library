@@ -14,10 +14,25 @@ body {
 }
 
 header {
+  margin-top: 2vh;
   width: 100%;
   text-align: center;
 }
 
 .display {
   height: 50vh;
+  display: flex;
+  align-items: center;
+  gap: 5vh;
+}
+
+.card {
+  background-color: rgba(66, 66, 66, 0.8);
+  padding: 2vh;
+  height: 35vh;
+  border-radius: 15px;
+  gap: 1.5vh;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
 }
