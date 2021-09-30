@@ -80,8 +80,15 @@ showDisplay();
 
  /* NEW BOOK button, which brings up a FORM, which takes new book: author, title, pages and
  read status */
+//const bookForm = document.getElementsByClassName("bookForm");
+const openBtn = document.getElementById("openBtn");
+openBtn.addEventListener("click", function() {
+document.getElementById("bookForm").style.display = "block";
+})
 
-
+const closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+document.getElementById("bookForm").style.display = "none";})
 
  /* Individual DELETE buttons: "You will need to associate your DOM elements with the actual book 
  objects in some way. One easy solution is giving them a data-attribute that corresponds to the 

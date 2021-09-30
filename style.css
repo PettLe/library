@@ -50,3 +50,21 @@ header {
     opacity: 1;
   }
 }
+
+#bookForm {
+  display: none;
+}
+
+#openBtn {
+  background-color: #32a123;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 7px;
+}
+
+#openBtn:hover {
+  border: 2px solid white;
+  background-color: #3cbe2b;
+}
