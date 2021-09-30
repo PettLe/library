@@ -62,15 +62,19 @@ card.classList.add("card");
 const cardTitle = document.createElement("h3");
 const cardAuthor = document.createElement("p");
 const cardPages = document.createElement("p");
+const trashBtn = document.createElement("img");
+//img.src = "trash.png";
 
 for (let item in myLibrary[i]) {
 cardTitle.textContent = (myLibrary[i].title);
 cardAuthor.textContent = (myLibrary[i].author);
 cardPages.textContent = (myLibrary[i].pages) + " pages";
+//img.src = "/home/petteri/the_odin_project/js-exercises/library/trash.png";
 }
 card.appendChild(cardTitle);
 card.appendChild(cardAuthor);
 card.appendChild(cardPages);
+card.appendChild(trashBtn);
 display.appendChild(card);
 }
 }
