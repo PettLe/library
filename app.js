@@ -7,11 +7,11 @@ let myLibrary = [
     {title: "Harry Potter",
 author: "J.K. Rowling",
 pages: 243,
-read: "read"},
+read: true},
 {title: "The hobbit",
 author: "J.R.R. Tolkien",
 pages: 176,
-read: "not read"},
+read: false},
 ];
 
 
@@ -22,6 +22,8 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
+
+
 let form = document.querySelector('form');
 form.addEventListener('submit', addBookToLibrary);
 function addBookToLibrary(event) {
@@ -31,17 +33,21 @@ function addBookToLibrary(event) {
     let pages = document.getElementById("pages").value;
     let read = document.getElementById("read").value;
   
-        /*if (read.checked) {
-            return read = "read";
+        /*if (read === "false") {
+            return false;
         } else {
-            return read = "Not read";
+            return true;
         }*/
-        console.log(read);
+       // console.log(myLibrary[2].read);
 
+/*for (i = 0; i < myLibrary.length; i++) {
+    console.log(myLibrary[i].read);
+}*/
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     form.reset();
     event.preventDefault();
+    console.log(myLibrary[myLibrary.length-1].read);
 createCard();
 }
 
@@ -64,6 +70,13 @@ card.classList.add("card");
 const cardTitle = document.createElement("h3");
 const cardAuthor = document.createElement("p");
 const cardPages = document.createElement("p");
+const cardRead = document.createElement("button");
+cardRead.classList.add("cardRead");
+/* eventlistener, joka togglee JS datassa true tai false luettuun. Yhdistä true ja false
+erivärisiin button layoutteihin
+
+TAI SITTEN! Ei Checkboxia. Samantien formiin nappi joka kliaktessa vaan muuttaa väriä.
+Samalla sen value tms muuttuu ja siirtyy objektiin?*/
 
 const trashBtn = document.createElement("p");
 trashBtn.classList.add("trashBtn");
@@ -79,11 +92,14 @@ cardTitle.textContent = (myLibrary[i].title);
 cardAuthor.textContent = (myLibrary[i].author);
 cardPages.textContent = (myLibrary[i].pages) + " pages";
 trashBtn.textContent = "delete";
+cardRead.textContent = "Read";
+
 }
 
 card.appendChild(cardTitle);
 card.appendChild(cardAuthor);
 card.appendChild(cardPages);
+card.appendChild(cardRead);
 card.appendChild(trashBtn);
 display.appendChild(card);
 
@@ -112,13 +128,7 @@ openBtn.style.display = "block";})
  index of the library array.
  YHDISTÄ NAPPI EVENTLISTENERILLÄ SHOWDISPLAYIHIN MUUNMUASSA*/
  
-/*const trashBtn = document.getElementsByClassName("trashBtn");*/
-//function deleteCard() {
- //   document.getElementsByClassName("card")[0].removeAttribute("card");
-//        console.log("CLICK!");
-//       myLibrary.splice(card.dataset.index, 1);
-//     createCard();
-// }
+
 
  /* Individual buttons to change READ status: "To facilitate this you will want to create the 
  function that toggles a book’s read status on your Book prototype instance." */
