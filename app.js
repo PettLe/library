@@ -62,14 +62,15 @@ card.classList.add("card");
 const cardTitle = document.createElement("h3");
 const cardAuthor = document.createElement("p");
 const cardPages = document.createElement("p");
-const trashBtn = document.createElement("img");
-//img.src = "trash.png";
+const trashBtn = document.createElement("p");
+trashBtn.classList.add("trashBtn");
+
 
 for (let item in myLibrary[i]) {
 cardTitle.textContent = (myLibrary[i].title);
 cardAuthor.textContent = (myLibrary[i].author);
 cardPages.textContent = (myLibrary[i].pages) + " pages";
-//img.src = "/home/petteri/the_odin_project/js-exercises/library/trash.png";
+trashBtn.textContent = "delete";
 }
 card.appendChild(cardTitle);
 card.appendChild(cardAuthor);
@@ -98,7 +99,8 @@ openBtn.style.display = "block";})
 
  /* Individual DELETE buttons: "You will need to associate your DOM elements with the actual book 
  objects in some way. One easy solution is giving them a data-attribute that corresponds to the 
- index of the library array.*/
+ index of the library array.
+ YHDISTÄ NAPPI EVENTLISTENERILLÄ SHOWDISPLAYIHIN MUUNMUASSA*/
 
 
 

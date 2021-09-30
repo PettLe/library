@@ -6,6 +6,7 @@
 
 body {
   background-color: #2b2b2b;
+  min-height: 100vh;
   color: aliceblue;
   font-family: Poppins, sans-serif;
   display: flex;
@@ -20,7 +21,7 @@ header {
 }
 
 .display {
-  height: 50vh;
+  min-height: 50vh;
   display: flex;
   width: 65vw;
   justify-content: center;
@@ -35,6 +36,7 @@ header {
   height: 35vh;
   width: 10vw;
   border-radius: 15px;
+  margin-bottom: 35px;
   gap: 1.5vh;
   box-shadow: 5px 5px 5px rgb(0, 0, 0);
   display: flex;
@@ -53,6 +55,7 @@ header {
 
 #bookForm {
   display: none;
+  margin-bottom: 35px;
 }
 
 #openBtn {
@@ -91,4 +94,30 @@ header {
 
 #closeBtn:hover {
   border: 2px solid white;
+}
+
+.material-icons-outlined {
+  font-family: "Material icons";
+}
+
+.trashBtn {
+  margin-top: auto;
+  margin-left: auto;
+  font-family: "Material icons";
+  text-align: end;
+  font-size: 1.5rem;
+}
+
+.trashBtn:hover {
+  color: #fa0808;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #202020;
+  width: 100vw;
+  height: 9vh;
+  text-align: center;
+  padding-top: 3vh;
+  margin-top: auto;
 }
