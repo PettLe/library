@@ -41,9 +41,8 @@ function addBookToLibrary(event) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     form.reset();
-    console.log(myLibrary);
     event.preventDefault();
-showDisplay();
+createCard();
 }
 
 console.log(myLibrary);
@@ -51,20 +50,29 @@ console.log(myLibrary);
 /* Create a LOOP that goes through the array and shows every book on the page (or in a cards).
  Might be easier to add few books manually.*/
 
-function showDisplay() {
+function createCard() {
 
 const display = document.querySelector(".display");
 display.innerHTML = "";
 
 for (i = 0; i < myLibrary.length; i++) {
 const card = document.createElement('div');
+    card.dataset.index = i;
+
+
 card.classList.add("card");
 const cardTitle = document.createElement("h3");
 const cardAuthor = document.createElement("p");
 const cardPages = document.createElement("p");
+
 const trashBtn = document.createElement("p");
 trashBtn.classList.add("trashBtn");
-
+trashBtn.addEventListener("click", function() {
+    console.log("CLICK!");
+    myLibrary.splice(card.dataset.index, 1);
+  createCard();
+    console.log(myLibrary);
+});
 
 for (let item in myLibrary[i]) {
 cardTitle.textContent = (myLibrary[i].title);
@@ -72,15 +80,17 @@ cardAuthor.textContent = (myLibrary[i].author);
 cardPages.textContent = (myLibrary[i].pages) + " pages";
 trashBtn.textContent = "delete";
 }
+
 card.appendChild(cardTitle);
 card.appendChild(cardAuthor);
 card.appendChild(cardPages);
 card.appendChild(trashBtn);
 display.appendChild(card);
+
 }
 }
 
-showDisplay();
+createCard();
 
 
  /* NEW BOOK button, which brings up a FORM, which takes new book: author, title, pages and
@@ -101,8 +111,17 @@ openBtn.style.display = "block";})
  objects in some way. One easy solution is giving them a data-attribute that corresponds to the 
  index of the library array.
  YHDISTÄ NAPPI EVENTLISTENERILLÄ SHOWDISPLAYIHIN MUUNMUASSA*/
-
-
+ 
+/*const trashBtn = document.getElementsByClassName("trashBtn");*/
+//function deleteCard() {
+ //   document.getElementsByClassName("card")[0].removeAttribute("card");
+//        console.log("CLICK!");
+//       myLibrary.splice(card.dataset.index, 1);
+//     createCard();
+// }
 
  /* Individual buttons to change READ status: "To facilitate this you will want to create the 
  function that toggles a book’s read status on your Book prototype instance." */
+
+
+
