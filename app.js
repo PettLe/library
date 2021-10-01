@@ -36,8 +36,9 @@ createCard();
 function createCard() {
     if (myLibrary == null) {
         myLibrary = [];
-    }
+    } else {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    }
     const display = document.querySelector(".display");
     display.innerHTML = "";
 
