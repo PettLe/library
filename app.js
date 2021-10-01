@@ -71,11 +71,24 @@ const cardTitle = document.createElement("h3");
 const cardAuthor = document.createElement("p");
 const cardPages = document.createElement("p");
 const cardRead = document.createElement("button");
-cardRead.classList.add("cardRead");
+cardRead.classList.add("cardNotRead");
 /* eventlistener, joka togglee JS datassa true tai false luettuun. Yhdistä true ja false
-erivärisiin button layoutteihin
+erivärisiin button layoutteihin*/
 
-TAI SITTEN! Ei Checkboxia. Samantien formiin nappi joka kliaktessa vaan muuttaa väriä.
+cardRead.addEventListener("click", function() {
+    this.classList.toggle("cardRead");
+    this.classList.toggle("cardNotRead");
+    if (cardRead.classList == "cardNotRead") {
+        cardRead.textContent = "Not read";
+        myLibrary[card.dataset.index].read = false;
+        console.log(myLibrary);
+        } else {
+            cardRead.textContent = "Read";
+            myLibrary[card.dataset.index].read = true;
+            console.log(myLibrary);
+        }
+})
+/*TAI SITTEN! Ei Checkboxia. Samantien formiin nappi joka kliaktessa vaan muuttaa väriä.
 Samalla sen value tms muuttuu ja siirtyy objektiin?*/
 
 const trashBtn = document.createElement("p");
@@ -92,7 +105,11 @@ cardTitle.textContent = (myLibrary[i].title);
 cardAuthor.textContent = (myLibrary[i].author);
 cardPages.textContent = (myLibrary[i].pages) + " pages";
 trashBtn.textContent = "delete";
-cardRead.textContent = "Read";
+if (cardRead.classList == "cardNotRead") {
+cardRead.textContent = "Not read";
+} else {
+    cardRead.textContent = "Read";
+}
 
 }
 
