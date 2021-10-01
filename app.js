@@ -1,5 +1,10 @@
 // Array containing books as object. Then a function to make a book and add it.
-let myLibrary = [{}];
+let myLibrary = [
+    {title: "title",
+    author: "author",
+    pages: "number of ",
+    read: true},
+];
 if (myLibrary == null) {
     myLibrary = [];
 }
