@@ -8,7 +8,7 @@ let myLibrary = [
 if (myLibrary == null) {
     myLibrary = [];
 }
-
+console.log(myLibrary);
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -39,7 +39,7 @@ createCard();
 
 //Function to create an individual card
 function createCard() {
-    if (myLibrary == null) {
+    if (localStorage.getItem("myLibrary") === null) {
         myLibrary = [];
     } else {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
