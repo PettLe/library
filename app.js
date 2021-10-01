@@ -1,10 +1,5 @@
 // Array containing books as object. Then a function to make a book and add it.
-let myLibrary = [
-    {title: "title",
-    author: "author",
-    pages: "number of ",
-    read: true},
-];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title
