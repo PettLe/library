@@ -34,6 +34,9 @@ createCard();
 
 //Function to create an individual card
 function createCard() {
+    if (myLibrary == null) {
+        myLibrary = [];
+    }
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
     const display = document.querySelector(".display");
     display.innerHTML = "";
