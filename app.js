@@ -1,14 +1,5 @@
-/* Array containing books as object. Then a function to make a book and add it.*/
-let myLibrary = [
-    {title: "Harry Potter",
-author: "J.K. Rowling",
-pages: 243,
-read: true},
-{title: "The Hobbit",
-author: "J.R.R. Tolkien",
-pages: 176,
-read: false},
-];
+// Array containing books as object. Then a function to make a book and add it.
+let myLibrary = [];
 
 
 function Book(title, author, pages, read) {
@@ -18,16 +9,9 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-
-function setLocalStorage() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-
-    let myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-}
-
-
-let form = document.querySelector('form');
-form.addEventListener('submit', addBookToLibrary);
+function bookForm() {
+    let form = document.querySelector('form');
+    form.addEventListener('submit', addBookToLibrary);
 
 function addBookToLibrary(event) {
 
@@ -36,7 +20,6 @@ function addBookToLibrary(event) {
     let pages = document.getElementById("pages").value;
     let read = document.getElementById("read").checked;
   
-
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
@@ -44,22 +27,18 @@ function addBookToLibrary(event) {
     event.preventDefault();
 
 createCard();
-}
+}}
 
 
-/* Create a LOOP that goes through the array and shows every book on the page (or in a cards).
- Might be easier to add few books manually.*/
-
+//Function to create an individual card
 function createCard() {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-
-const display = document.querySelector(".display");
-display.innerHTML = "";
+    const display = document.querySelector(".display");
+    display.innerHTML = "";
 
 for (i = 0; i < myLibrary.length; i++) {
 const card = document.createElement('div');
     card.dataset.index = i;
-
 
 card.classList.add("card");
 const cardTitle = document.createElement("h3");
@@ -74,67 +53,63 @@ cardRead.classList.add("cardRead");
 } 
 
 
-/* eventlistener, joka togglee JS datassa true tai false luettuun. Yhdistä true ja false
-erivärisiin button layoutteihin*/
+// Function for toggling the read status
+function cardReadStatus() {
+    cardRead.addEventListener("click", function() {
+        this.classList.toggle("cardRead");
+        this.classList.toggle("cardNotRead");
+        if (cardRead.classList == "cardNotRead") {
+            cardRead.textContent = "Not read";
+            myLibrary[card.dataset.index].read = false;
+            localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+            } else {
+                cardRead.textContent = "Read";
+                myLibrary[card.dataset.index].read = true;
+                localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+            }})
 
-cardRead.addEventListener("click", function() {
-    this.classList.toggle("cardRead");
-    this.classList.toggle("cardNotRead");
-    if (cardRead.classList == "cardNotRead") {
-        cardRead.textContent = "Not read";
-        myLibrary[card.dataset.index].read = false;
-        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+    for (let item in myLibrary[i]) {
+        cardTitle.textContent = (myLibrary[i].title);
+        cardAuthor.textContent = (myLibrary[i].author);
+        cardPages.textContent = (myLibrary[i].pages) + " pages";
+        if (cardRead.classList == "cardNotRead") {
+            cardRead.textContent = "Not read";
         } else {
             cardRead.textContent = "Read";
-            myLibrary[card.dataset.index].read = true;
-            localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-        }
-})
-/*TAI SITTEN! Ei Checkboxia. Samantien formiin nappi joka kliaktessa vaan muuttaa väriä.
-Samalla sen value tms muuttuu ja siirtyy objektiin?*/
+        }}}
 
+//Trash button
 const trashBtn = document.createElement("p");
-trashBtn.classList.add("trashBtn");
-trashBtn.addEventListener("click", function() {
-    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-    myLibrary.splice(card.dataset.index, 1);
-  createCard();
-});
+function trashButton() {
+    trashBtn.classList.add("trashBtn");
+    trashBtn.textContent = "delete";
+    trashBtn.addEventListener("click", function() {
+        myLibrary.splice(card.dataset.index, 1);
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+        console.log(myLibrary);
+      createCard();
+});}
 
-for (let item in myLibrary[i]) {
-cardTitle.textContent = (myLibrary[i].title);
-cardAuthor.textContent = (myLibrary[i].author);
-cardPages.textContent = (myLibrary[i].pages) + " pages";
-trashBtn.textContent = "delete";
-if (cardRead.classList == "cardNotRead") {
-cardRead.textContent = "Not read";
-} else {
-    cardRead.textContent = "Read";
+function appendCard() {
+    card.appendChild(cardTitle);
+    card.appendChild(cardAuthor);
+    card.appendChild(cardPages);
+    card.appendChild(cardRead);
+    card.appendChild(trashBtn);
+    display.appendChild(card);
 }
 
-}
+//Call the functions
+cardReadStatus();
+trashButton();
+appendCard();
+}}
 
-card.appendChild(cardTitle);
-card.appendChild(cardAuthor);
-card.appendChild(cardPages);
-card.appendChild(cardRead);
-card.appendChild(trashBtn);
-display.appendChild(card);
-}
-
-//localStorage.myLibrary = JSON.stringify(myLibrary);
-//let myLibrary2 = JSON.parse(localStorage.myLibrary);
-console.log(localStorage);
-console.log(myLibrary);
-}
-
+bookForm();
 createCard();
 
 
- /* NEW BOOK button, which brings up a FORM, which takes new book: author, title, pages and
- read status */
-
+// NEW BOOK and close buttons
 const openBtn = document.getElementById("openBtn");
 openBtn.addEventListener("click", function() {
 document.getElementById("bookForm").style.display = "block";
@@ -145,12 +120,3 @@ const closeBtn = document.getElementById("closeBtn");
 closeBtn.addEventListener("click", () => {
 document.getElementById("bookForm").style.display = "none";
 openBtn.style.display = "block";})
-
- /* Individual DELETE buttons: "You will need to associate your DOM elements with the actual book 
- objects in some way. One easy solution is giving them a data-attribute that corresponds to the 
- index of the library array.
-
- Individual buttons to change READ status: "To facilitate this you will want to create the 
- function that toggles a book’s read status on your Book prototype instance." */
-
-
