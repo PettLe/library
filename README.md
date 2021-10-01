@@ -24,3 +24,5 @@ but it just feels unnatural sometimes.
 
 I had a lot more to say but I can't remember anymore. This project took about 4-5 days (to be honest, first two I didn't accomplish much due to stress and
 other obligations) and it seems I should start writing README before the whole thing is ready.
+
+...EDIT: Getting this work when localStorage is still empty was a struggle..

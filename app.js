@@ -5,10 +5,7 @@ let myLibrary = [
     pages: "number of ",
     read: true},
 ];
-if (myLibrary == null) {
-    myLibrary = [];
-}
-console.log(myLibrary);
+
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
