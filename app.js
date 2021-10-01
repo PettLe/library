@@ -1,5 +1,5 @@
 // Array containing books as object. Then a function to make a book and add it.
-let myLibrary = [];
+let myLibrary = [{}];
 if (myLibrary == null) {
     myLibrary = [];
 }
@@ -92,7 +92,6 @@ function trashButton() {
     trashBtn.addEventListener("click", function() {
         myLibrary.splice(card.dataset.index, 1);
         localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-        console.log(myLibrary);
       createCard();
 });}
 
