@@ -32,7 +32,11 @@ createCard();
 
 //Function to create an individual card
 function createCard() {
+    if (localStorage === "null") {
+        myLibrary = [];
+    } else {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    }
     const display = document.querySelector(".display");
     display.innerHTML = "";
 
