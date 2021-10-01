@@ -8,7 +8,7 @@ let myLibrary = [
 author: "J.K. Rowling",
 pages: 243,
 read: true},
-{title: "The hobbit",
+{title: "The Hobbit",
 author: "J.R.R. Tolkien",
 pages: 176,
 read: false},
@@ -23,31 +23,26 @@ function Book(title, author, pages, read) {
 }
 
 
-
 let form = document.querySelector('form');
 form.addEventListener('submit', addBookToLibrary);
+
 function addBookToLibrary(event) {
 
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
     let pages = document.getElementById("pages").value;
-    let read = document.getElementById("read").value;
+    let read = document.getElementById("read").checked;
   
-        /*if (read === "false") {
-            return false;
-        } else {
-            return true;
-        }*/
-       // console.log(myLibrary[2].read);
+    //if (read.checked) {
+//
+    //}
+    //console.log(read.checked);
 
-/*for (i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i].read);
-}*/
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     form.reset();
     event.preventDefault();
-    console.log(myLibrary[myLibrary.length-1].read);
+
 createCard();
 }
 
@@ -64,14 +59,23 @@ display.innerHTML = "";
 for (i = 0; i < myLibrary.length; i++) {
 const card = document.createElement('div');
     card.dataset.index = i;
-
+    console.log(myLibrary[i].read);
 
 card.classList.add("card");
 const cardTitle = document.createElement("h3");
 const cardAuthor = document.createElement("p");
 const cardPages = document.createElement("p");
 const cardRead = document.createElement("button");
-cardRead.classList.add("cardNotRead");
+
+if (myLibrary[i].read === true) {
+cardRead.classList.add("cardRead");
+//onsole.log("Uuden kortin arvo on nyt " + myLibrary[card.dataset.index].read);
+} else {
+    cardRead.classList.add("cardNotRead");
+ //   console.log("Uuden kortin arvo on nyt " + myLibrary[i].read);
+} 
+
+
 /* eventlistener, joka togglee JS datassa true tai false luettuun. Yhdistä true ja false
 erivärisiin button layoutteihin*/
 
@@ -120,6 +124,7 @@ card.appendChild(cardRead);
 card.appendChild(trashBtn);
 display.appendChild(card);
 
+console.log(myLibrary);
 }
 }
 
