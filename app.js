@@ -1,6 +1,8 @@
 // Array containing books as object. Then a function to make a book and add it.
 let myLibrary = [];
-
+if (myLibrary == null) {
+    myLibrary = [];
+}
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -32,11 +34,7 @@ createCard();
 
 //Function to create an individual card
 function createCard() {
-    if (myLibrary == null) {
-        myLibrary = [];
-    } else {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-    }
     const display = document.querySelector(".display");
     display.innerHTML = "";
 
