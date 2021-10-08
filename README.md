@@ -26,3 +26,6 @@ I had a lot more to say but I can't remember anymore. This project took about 4-
 other obligations) and it seems I should start writing README before the whole thing is ready.
 
 ...EDIT: Getting this work when localStorage is still empty was a struggle..
+
+...EDIT2: added class to replace Book constructor. It was simple but couldn't do it for other functions. Not quite sure if I'm even supposed to.
+Went to see other people's projects and seems most of them did it only for the Book constructor.

@@ -1,11 +1,13 @@
 // Array containing books as object. Then a function to make a book and add it.
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
+    }
 }
 
 function bookForm() {
