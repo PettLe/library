@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+
 // Array containing books as object. Then a function to make a book and add it.
 let myLibrary = [];
 
@@ -127,3 +129,5 @@ closeBtn.addEventListener("click", () => {
   document.getElementById("bookForm").style.display = "none";
   openBtn.style.display = "block";
 });
+
+initializeApp();

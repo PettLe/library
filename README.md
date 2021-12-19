@@ -33,5 +33,9 @@ Went to see other people's projects and seems most of them did it only for the B
 ---
 
 As I progressed further in the Odin Project, I came back to this project. As an exercise, I'll be implementing Firebase to this project.
-I will keep my project in GitHub instead of using Firebase hosting.
+I will probably also use Firebase hosting.
 This is gonna be hard.
+
+---
+
+Hosting was fairly simple step.

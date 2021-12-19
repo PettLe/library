@@ -1,0 +1,22 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "This was either the most fun I've had so far or...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PettLe/library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PettLe/library/issues"
+  },
+  "homepage": "https://github.com/PettLe/library#readme",
+  "dependencies": {
+    "firebase": "^9.6.1"
+  }
+}
