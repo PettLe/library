@@ -29,3 +29,9 @@ other obligations) and it seems I should start writing README before the whole t
 
 ...EDIT2: added class to replace Book constructor. It was simple but couldn't do it for other functions. Not quite sure if I'm even supposed to.
 Went to see other people's projects and seems most of them did it only for the Book constructor.
+
+---
+
+As I progressed further in the Odin Project, I came back to this project. As an exercise, I'll be implementing Firebase to this project.
+I will keep my project in GitHub instead of using Firebase hosting.
+This is gonna be hard.

@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>Library</title>
-</head>
-<body>
-    <header><h1>Collection of Old Dusty Books</h1></header>   
+  </head>
+  <body>
+    <header><h1>Collection of Old Dusty Books</h1></header>
     <div class="display"></div>
     <button type="button" id="openBtn">Add New Book</button>
-<div id="bookForm">
-    <form>
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br>
-        <label for="author">Author:</label><br>
-        <input type="text" id="author" name="author" required><br>
-        <label for="pages">Pages:</label><br>
-        <input type="text" id="pages" name="pages" required><br>
-        <input type="checkbox" id="read" name="read" value="true">
-        <label for="read"> Read already?</label><br>
-        <input type="submit" id ="submitBtn" value="Submit">
+    <div id="bookForm">
+      <form>
+        <label for="title">Title:</label><br />
+        <input type="text" id="title" name="title" required /><br />
+        <label for="author">Author:</label><br />
+        <input type="text" id="author" name="author" required /><br />
+        <label for="pages">Pages:</label><br />
+        <input type="text" id="pages" name="pages" required /><br />
+        <input type="checkbox" id="read" name="read" value="true" />
+        <label for="read"> Read already?</label><br />
+        <input type="submit" id="submitBtn" value="Submit" />
         <button type="button" id="closeBtn">Close</button>
-    </form>
-</div>
-<footer>Copyright &copy; Petteri Leino, 2021</footer>
+      </form>
+    </div>
+    <footer>Copyright &copy; Petteri Leino, 2021</footer>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
