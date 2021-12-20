@@ -1,4 +1,34 @@
-import { initializeApp } from "firebase/app";
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+//
+//const firebaseConfig = {
+//  apiKey: "AIzaSyAh_5Z-a2BTvbcB6EpbXCuAYtj4Rz6Lw04",
+//
+//  authDomain: "library-pettle.firebaseapp.com",
+//
+//  projectId: "library-pettle",
+//
+//  storageBucket: "library-pettle.appspot.com",
+//
+//  messagingSenderId: "916954399871",
+//
+//  appId: "1:916954399871:web:f927372917bb0a5cf9eb4a",
+//};
+//
+//initializeApp();
+const db = getFirestore();
+const colRef = collection(db, "books");
+getDocs(colRef).then((snapshot) => {
+  let books = [];
+  snapshot.docs.forEach((doc) => {
+    books.push({ ...doc.data(), id: doc.id });
+  });
+  console.log(books);
+});
 
 // Array containing books as object. Then a function to make a book and add it.
 let myLibrary = [];
@@ -42,7 +72,7 @@ function createCard() {
   const display = document.querySelector(".display");
   display.innerHTML = "";
 
-  for (i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
     card.dataset.index = i;
 
@@ -130,4 +160,4 @@ closeBtn.addEventListener("click", () => {
   openBtn.style.display = "block";
 });
 
-initializeApp();
+console.log("AUTTAKAA NYT VITTU SAATANA");
