@@ -10,13 +10,14 @@ const db = getFirestore();
 const colRef = collection(db, "books");
 
 // Array containing books as object. Then a function to make a book and add it.
-let books = [];
+//let books = [];
 let myLibrary = [];
 onSnapshot(colRef, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     myLibrary.push({ ...doc.data(), id: doc.id });
   });
   console.log(myLibrary);
+  createCard();
 });
 
 class Book {
@@ -41,7 +42,7 @@ function bookForm() {
       read: document.getElementById("read").checked,
     }).then(() => {
       form.reset();
-      createCard();
+      // createCard();
     });
 
     //let title = document.getElementById("title").value;
@@ -140,7 +141,7 @@ function createCard() {
 }
 
 bookForm();
-createCard();
+//createCard();
 
 // NEW BOOK and close buttons
 const openBtn = document.getElementById("openBtn");
