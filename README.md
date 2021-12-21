@@ -39,3 +39,7 @@ This is gonna be hard.
 ---
 
 Hosting was fairly simple step.
+Implementing firebase and firestore itself wasn't. It's probably because this project is old (hence the code is a mess!). But I had to resort to
+using CDN way of importing.
+
+NOTE TO SELF: renders books only when submitting (local and db)
