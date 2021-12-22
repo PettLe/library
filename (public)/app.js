@@ -1,4 +1,3 @@
-//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import {
   getFirestore,
   collection,
@@ -6,21 +5,19 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const db = getFirestore();
 const colRef = collection(db, "books");
 
 // Array containing books as object. Then a function to make a book and add it.
-//let books = [];
 let myLibrary = [];
 onSnapshot(colRef, (snapshot) => {
   myLibrary = [];
   snapshot.docs.forEach((doc) => {
     myLibrary.push({ ...doc.data(), id: doc.id });
   });
-  console.log(myLibrary);
-
   createCard();
 });
 
@@ -46,31 +43,12 @@ function bookForm() {
       read: document.getElementById("read").checked,
     }).then(() => {
       form.reset();
-      //const display = document.querySelector(".display");
-      //display.innerHTML = "";
-      //  location.reload(); Kinda toimii muttei ihanteellinen
-      //createCard();
     });
-
-    //let title = document.getElementById("title").value;
-    //let author = document.getElementById("author").value;
-    //let pages = document.getElementById("pages").value;
-    //let read = document.getElementById("read").checked;
-    //
-    //let newBook = new Book(title, author, pages, read);
-    //myLibrary.push(newBook);
-    //localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
   }
 }
 
 //Function to create an individual card
 function createCard() {
-  /*if (localStorage.getItem("myLibrary") === null) {
-    myLibrary = [];
-  } else {
-    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-    //myLibrary = books;
-  }*/
   const display = document.querySelector(".display");
   display.innerHTML = "";
 
@@ -95,14 +73,17 @@ function createCard() {
       cardRead.addEventListener("click", function () {
         this.classList.toggle("cardRead");
         this.classList.toggle("cardNotRead");
+        const docRef = doc(db, "books", myLibrary[card.dataset.index].id);
         if (cardRead.classList == "cardNotRead") {
+          updateDoc(docRef, {
+            read: false,
+          });
           cardRead.textContent = "Not read";
-          myLibrary[card.dataset.index].read = false;
-          localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         } else {
+          updateDoc(docRef, {
+            read: true,
+          });
           cardRead.textContent = "Read";
-          myLibrary[card.dataset.index].read = true;
-          localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         }
       });
 
@@ -124,14 +105,8 @@ function createCard() {
       trashBtn.classList.add("trashBtn");
       trashBtn.textContent = "delete";
       trashBtn.addEventListener("click", function () {
-        console.log(myLibrary[card.dataset.index].id);
         const docRef = doc(db, "books", myLibrary[card.dataset.index].id);
-        deleteDoc(docRef); //.then(() => {
-        //  createCard();
-        //});
-        // myLibrary.splice(card.dataset.index, 1);
-        // localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-        // createCard(); TEMPORARY COMMENT
+        deleteDoc(docRef);
       });
     }
 
@@ -152,7 +127,6 @@ function createCard() {
 }
 
 bookForm();
-//createCard();
 
 // NEW BOOK and close buttons
 const openBtn = document.getElementById("openBtn");

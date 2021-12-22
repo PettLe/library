@@ -42,4 +42,10 @@ Hosting was fairly simple step.
 Implementing firebase and firestore itself wasn't. It's probably because this project is old (hence the code is a mess!). But I had to resort to
 using CDN way of importing.
 
-NOTE TO SELF: renders books only when submitting (local and db)
+Following tutorials I managed to change the localStorage into Firestore and render books based on that. I had little problems along the way (everything rendered
+initially twice and fixed itself immediately when refreshing page) but I overcame those. After figuring out that, updating the delete buttons to work with Firestore
+was a breeze.
+Updating read status was also as easy as the delete function.
+
+Overall once I got past the initial problems, Firebase turned out to be fairly simple and definetly seems to be useful!
+Looking forward to use it in the future. Hopefully implementing it will be easier when it's done right from the start.
