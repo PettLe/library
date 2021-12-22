@@ -4,6 +4,8 @@ import {
   collection,
   onSnapshot,
   addDoc,
+  deleteDoc,
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const db = getFirestore();
@@ -122,9 +124,14 @@ function createCard() {
       trashBtn.classList.add("trashBtn");
       trashBtn.textContent = "delete";
       trashBtn.addEventListener("click", function () {
-        myLibrary.splice(card.dataset.index, 1);
-        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-        createCard();
+        console.log(myLibrary[card.dataset.index].id);
+        const docRef = doc(db, "books", myLibrary[card.dataset.index].id);
+        deleteDoc(docRef); //.then(() => {
+        //  createCard();
+        //});
+        // myLibrary.splice(card.dataset.index, 1);
+        // localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+        // createCard(); TEMPORARY COMMENT
       });
     }
 
