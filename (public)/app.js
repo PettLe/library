@@ -13,10 +13,12 @@ const colRef = collection(db, "books");
 //let books = [];
 let myLibrary = [];
 onSnapshot(colRef, (snapshot) => {
+  myLibrary = [];
   snapshot.docs.forEach((doc) => {
     myLibrary.push({ ...doc.data(), id: doc.id });
   });
   console.log(myLibrary);
+
   createCard();
 });
 
@@ -42,7 +44,10 @@ function bookForm() {
       read: document.getElementById("read").checked,
     }).then(() => {
       form.reset();
-      // createCard();
+      //const display = document.querySelector(".display");
+      //display.innerHTML = "";
+      //  location.reload(); Kinda toimii muttei ihanteellinen
+      //createCard();
     });
 
     //let title = document.getElementById("title").value;
@@ -64,7 +69,6 @@ function createCard() {
     myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
     //myLibrary = books;
   }*/
-  console.log(myLibrary);
   const display = document.querySelector(".display");
   display.innerHTML = "";
 
